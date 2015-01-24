@@ -1,0 +1,33 @@
+{
+	"name" : "cyberomulus/podcast-generator",
+	"type" : "library",
+	"description" : "PodcastGenerator generate a RSS feed for podcast",
+	"keywords" : [
+		"xml",
+		"generator",
+		"podcast"
+	],
+	"homepage" : "https://github.com/cyberomulus/PodcastGenerator",
+	"support" : {
+		"email" : "romuluslepunk@gmail.com",
+		"issues" : "https://github.com/cyberomulus/PodcastGenerator/issues",
+		"wiki" : "https://github.com/cyberomulus/PodcastGenerator/wiki",
+		"source" : "https://github.com/cyberomulus/PodcastGenerator"
+	},
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Brack Romain",
+			"email" : "romuluslepunk@gmail.com",
+			"homepage" : "https://github.com/cyberomulus"
+		}
+	],
+	"require" : {
+		"php" : ">=5.2.0"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"Cyberomulus\\PodcastGenerator\\" : "src"
+		}
+	},
+	"minimum-stability" : "dev"
+}
