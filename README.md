@@ -15,7 +15,7 @@ Il suffit d'ajouter la dépendances à votre fichier composer.json:
         }
     }
 	
-Sinon, rendez-vous sur la page [github de PodcastGenerator](https://github.com/cyberomulus/PodcastGenerator) et choisissez le releases de votre choix.  
+Sinon, rendez-vous sur la page [github de PodcastGenerator](https://github.com/cyberomulus/PodcastGenerator) et choisissez le release de votre choix.  
 Vous pourrez ensuite télécharger le code source via le lien 'Download ZIP'.  
 Placez le dossier contenu dans le ZIP dans un dossier lib (par exemple) de votre projet.
 
@@ -24,12 +24,13 @@ Placez le dossier contenu dans le ZIP dans un dossier lib (par exemple) de votre
 Il faut la version 5.2.0 minimum de PHP avec l'extension Dom activée (elle est activée par défaut).
 
 ## Comment utiliser PodcastGenerator ?
+
 L'utilisation est simple, Il suffit de :
 
 1. Configurer le flux via le constructeur de l'objet `Podcast`.
 2. Configurer chaques éléments du podcast via le constructeur de l'objet `Media`.
 3. Transmettre la liste des éléments au Podcast via la fonction `Podcast::addMedia()`
-4. Récupérer le flux généré via la méthode `Podcast::toString()` ou `Podcast::toDom()`
+4. Récupérer le flux généré via la fonction `Podcast::toString()` ou `Podcast::toDom()`
 
 ### 1. Le constructeur de l'objet `Podcast`.
 
@@ -154,6 +155,8 @@ Voici la documentation du constructeur :
 
 ### 2. Le constructeur de l'objet `Media`.
 
+Voici la documentation du constructeur :
+
 	/**
 	 * Création d'un média
 	 *
@@ -204,7 +207,7 @@ Voici la documentation du constructeur :
 	 * 				Si elle est null et que le podcast est en modeInjection à true, la description sera la même
 	 * 				que celle du podcast
 	 * @param	string|null		$sousTitre
-	 * 				Sous titre général du podcast.
+	 * 				Sous titre du media.
 	 * 				Il se stock dans la balise XML :
 	 * 				<item>
 	 * 					<itunes:subtitle>LE SOUS TITRE</itunes:subtitle>
