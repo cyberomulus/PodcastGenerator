@@ -29,7 +29,7 @@ class Media
 	private $titre;
 
 	/**
-	 * Sous titre général du podcast.
+	 * Sous titre du media.
 	 * Il se stock dans la balise XML :
 	 * <item>
 	 * 		<itunes:subtitle>LE SOUS TITRE</itunes:subtitle>
@@ -190,7 +190,7 @@ class Media
 	 * 				Si elle est null et que le podcast est en modeInjection à true, la description sera la même
 	 * 				que celle du podcast
 	 * @param	string|null		$sousTitre
-	 * 				Sous titre général du podcast.
+	 * 				Sous titre du media.
 	 * 				Il se stock dans la balise XML :
 	 * 				<item>
 	 * 					<itunes:subtitle>LE SOUS TITRE</itunes:subtitle>
