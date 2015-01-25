@@ -3,8 +3,8 @@
 	"type" : "library",
 	"description" : "PodcastGenerator generate a RSS feed for podcast",
 	"keywords" : [
-		"xml",
-		"generator",
+		"rss",
+		"feed",
 		"podcast"
 	],
 	"homepage" : "https://github.com/cyberomulus/PodcastGenerator",
