@@ -262,6 +262,8 @@ Ces valeurs seront héritées du podcast dans le cas où ces 2 conditions sont r
 
 	<?php
 	// ne pas oubliez d'importer les classes
+	require 'lib/Podcast.php';
+	require 'lib/Media.php';
 	use Cyberomulus\PodcastGenerator\Podcast;
 	use Cyberomulus\PodcastGenerator\Media;
 	
@@ -322,11 +324,71 @@ Ces valeurs seront héritées du podcast dans le cas où ces 2 conditions sont r
 	
 	// pour afficher le document XML
 	header ("Content-Type:text/xml");
-	$podcast->toString();
+	echo $podcast->toString();
 	
 	// mais il est possible de récupérer le document DOM pour le modifier
 	$dom = $podcast->toDom();
 	?>
+
+Voici le résultat :
+
+	<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+		<channel>
+			<title>Un titre pour mon Podcast</title>
+			<itunes:subtitle>Un sous-titre pour mon Podcast</itunes:subtitle>
+			<link>http://www.monsite.com</link>
+			<description>
+			<![CDATA[ Une description pour mon Podcast ]]>
+			</description>
+			<itunes:summary>Une description pour mon Podcast</itunes:summary>
+			<image>
+			<title>Un titre pour mon Podcast</title>
+			<link>http://www.monsite.com</link>
+			<url>http://www.monsite.com/img/podcast.jpg</url>
+			</image>
+			<itunes:image href="http://www.monsite.com/img/podcast.jpg"/>
+			<itunes:author>Mon nom</itunes:author>
+			<itunes:owner>
+			<itunes:name>Mon nom</itunes:name>
+			</itunes:owner>
+			<itunes:category>music</itunes:category>
+			<item>
+				<title>Emission du 23/01/15</title>
+				<itunes:subtitle>Un sous-titre pour mon Podcast</itunes:subtitle>
+				<description>
+				<![CDATA[ Une description spécifique pour ce média ]]>
+				</description>
+				<itunes:summary>Une description spécifique pour ce média</itunes:summary>
+				<link>http://www.monsite.com</link>
+				<pubDate>Fri, 23 Jan 2015 00:00:00 +0100</pubDate>
+				<enclosure url="http://www.monsite.com/media/fichier1.mp3" type="audio/mpeg"/>
+				<author>Mon nom</author>
+				<itunes:author>Mon nom</itunes:author>
+				<itunes:duration>15:05</itunes:duration>
+				<guid>un_guid_unique_sur_tout_internet</guid>
+				<itunes:image href="http://www.monsite.com/img/podcast.jpg"/>
+			</item>
+			<item>
+				<title>Emission du 24/01/15</title>
+				<itunes:subtitle>
+				Un ami vient me rendre visite au studio d'enregistrement
+				</itunes:subtitle>
+				<description>
+				<![CDATA[ Une description pour mon Podcast ]]>
+				</description>
+				<itunes:summary>Une description pour mon Podcast</itunes:summary>
+				<link>http://www.monsite.com</link>
+				<pubDate>Sat, 24 Jan 2015 00:00:00 +0100</pubDate>
+				<enclosure url="http://www.monsite.com/media/fichier2.mp3" type="audio/mpeg"/>
+				<author>Mon nom + Nom de mon ami</author>
+				<itunes:author>Mon nom + Nom de mon ami</itunes:author>
+				<itunes:duration>1:01:48</itunes:duration>
+				<guid>un_autre_guid_unique_sur_tout_internet</guid>
+				<itunes:image href="http://www.monsite.com/img/podcast.jpg"/>
+			</item>
+			<pubDate>Sat, 24 Jan 2015 00:00:00 +0100</pubDate>
+		</channel>
+	</rss>
 
 ## Sous quelle licence est PodcastGEnerator
 PodcastGenerator est sous licence MIT (licence libre).  
