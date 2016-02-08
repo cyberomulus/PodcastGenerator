@@ -4,7 +4,7 @@ namespace Cyberomulus\PodcastGenerator;
 /*
  * This file is part of the PodcastGenerator package.
  *
- * (c) Brack Romain <https://github.com/cyberomulus>
+ * (c) Brack Romain <http://www.cyberomulus.me>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,7 +13,7 @@ namespace Cyberomulus\PodcastGenerator;
 /**
  * Cette classe représente un médià à injecter dans un Podacst
  *
- * @author cyberomulus - Brack Romain <romuluslepunk@gmail.com>
+ * @author cyberomulus - Brack Romain <me@cyberomulus.me>
  */
 class Media
 	{

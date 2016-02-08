@@ -9,7 +9,7 @@
 	],
 	"homepage" : "https://github.com/cyberomulus/PodcastGenerator",
 	"support" : {
-		"email" : "romuluslepunk@gmail.com",
+		"email" : "me@cyberomulus.me",
 		"issues" : "https://github.com/cyberomulus/PodcastGenerator/issues",
 		"wiki" : "https://github.com/cyberomulus/PodcastGenerator/wiki",
 		"source" : "https://github.com/cyberomulus/PodcastGenerator"
@@ -17,8 +17,8 @@
 	"license" : "MIT",
 	"authors" : [{
 			"name" : "Brack Romain",
-			"email" : "romuluslepunk@gmail.com",
-			"homepage" : "https://github.com/cyberomulus"
+			"email" : "me@cyberomulus.me",
+			"homepage" : "http://www.cyberomulus.me"
 		}
 	],
 	"require" : {
