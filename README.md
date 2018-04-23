@@ -11,7 +11,7 @@ Just add the dependencies to your composer.json:
 	
 	{
 		"require": {
-            "cyberomulus/podcast-generator": "1.0"
+            "cyberomulus/podcast-generator": "2.0"
         }
     }
 	
@@ -29,218 +29,218 @@ For use, just :
 
 1. Configure the feed with the constructor of object `Podcast`.
 2. Configure all elements of podcast with the constructor of object `Media`.
-3. Transmit the list of Element to the podcast with the function `Podcast::addMedia()`
+3. Transmit the list of Media to the podcast with the function `Podcast::addMedia()`
 4. Retrieve the generate feed with the function `Podcast::toString()` or `Podcast::toDom()`
 
 ### 1. the constructor of object `Podcast`.
 
-Here is the translate documentation of constructor :
+Here the phpdoc of constructor :
 
 	/**
-	 * Create a podcast.
-	 * 
-	 * @param	string	$titre
-	 * 				General title of podcast.
-	 * 				He's placed in tags XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<title>THE TITLE</title>
-	 * 						<image>
-	 * 							<title>THE TILE</title>
-	 * 						</image>
-	 * 					<channel>
-	 * 				</rss>
-	 * @param	string	$description
-	 * 				Description of podcast.
-	 * 				He's placed in tags XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<description>THE DESCRIPTION</description>
-	 * 						<itunes:summary>THE DESCRIPTION</itunes:summary>
-	 * 					<channel>
-	 * 				</rss>
-	 * @param	string	$lien
-	 * 				URL the the website ofs podcast.
-	 * 				He's placed in tags XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<link>URL</link>
-	 * 						<image>
-	 * 							<link>URL</link>
-	 * 						</image>
-	 * 					<channel>
-	 * 				</rss>
-	 * @param	string	$image
-	 * 				URL to the image of podcast.
-	 * 				He's placed in tags and attributes XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<image>
-	 * 							<url>URL</url>
-	 * 						</image>
-	 * 						<itunes:image href="URL" />
-	 * 					<channel>
-	 * 				</rss>
-	 * @param	string	$auteur
-	 * 				Author of podcast.
-	 * 				He's placed in tags XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<itunes:author>AUTHOR</itunes:author>
-	 * 						<itunes:owner>
-	 * 							<itunes:name>AUTHOR</itunes:name>
-	 * 						</itunes:owner>
-	 * 					<channel>
-	 * 				</rss>
-	 * @param 	string|null		$categorie
-	 * 				Category of podcast.
-	 * 				He's placed in tag XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<itunes:category>CATEGORY</itunes:category>
-	 * 					<channel>
-	 * 				</rss>
-	 * 				For not display this tag, put null (default)
-	 * @param 	string|null		$sousTitre
-	 * 				General subtitle of podcast.
-	 * 				He's placed in tag XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<itunes:subtitle>SUBTITLE</itunes:subtitle>
-	 * 					<channel>
-	 * 				</rss>
-	 * 				For not display this tag, put null (default)
-	 * @param 	string|null		$langue
-	 * 				Language of podcast.
-	 * 				He's placed in tag XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<language>LANGUAGE</language>
-	 * 					<channel>
-	 * 				</rss>
-	 * 				For not display this tag, put null (default)
-	 * @param 	string|null		$email
-	 * 				Email address of the owner of the podcast.
-	 * 				He's placed in tag XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<itunes:owner>
-	 * 							<itunes:email>EMAIL</itunes:email>
-	 * 						</itunes:owner>
-	 * 					<channel>
-	 * 				</rss>
-	 * 				For not display this tag, put null (default)
-	 * @param	string|null		$copyright
-	 * 				Copyright of podcast.
-	 * 				He's placed in tag XML :
-	 * 				<rss>
-	 * 					<channel>
-	 * 						<copyright>COPYRIGHT</copyright>
-	 * 					<channel>
-	 * 				</rss>
-	 * 				For not display this tag, put null (default)
-	 * @param 	array 	$medias
-	 * 				Media list of podcast.
-	 * 				Put null for add the list after
-	 * @param 	boolean	$modeInjection
-	 * 				If true, the following items will be sent to all media so that it takes the same values as the podcast (does
-	 *				effect if the element is null in the media:
-	 * 					- the subtitle
-	 * 					- URL to the website
-	 * 					- the description
-	 * 					- the author
-	 * 					- the image
-	 */
-	public function __construct($titre, $description, $lien, $image, $auteur, $categorie=null, $sousTitre=null, $langue=null, $email=null, $copyright=null, $medias=null, $modeInjection=true)
+     * Podcast creation.
+     *
+     * @param	string	$title
+     * 				General title of the podcast.
+     * 				It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<title>THE TITLE</title>
+     * 						<image>
+     * 							<title>THE TITLE</title>
+     * 						</image>
+     * 					<channel>
+     * 				</rss>
+     * @param	string	$description
+     * 				Description of the podcast.
+     * 				It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<description>THE DESCRIPTION</description>
+     * 						<itunes:summary>THE DESCRIPTION</itunes:summary>
+     * 					<channel>
+     * 				</rss>
+     * @param	string	$link
+     * 				Link to the PODCAST website
+     *              It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<link>LINK</link>
+     * 						<image>
+     * 							<link>LINK</link>
+     * 						</image>
+     * 					<channel>
+     * 				</rss>
+     * @param	string	$image
+     * 				URL of the image representing the podcast.
+     *              It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<image>
+     * 							<url>IMAGE</url>
+     * 						</image>
+     * 						<itunes:image href="IMAGE" />
+     * 					<channel>
+     * 				</rss>
+     * @param	string	$author
+     * 				Author of the podcast.
+     * 				It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<itunes:author>AUTHOR</itunes:author>
+     * 						<itunes:owner>
+     * 							<itunes:name>AUTHOR</itunes:name>
+     * 						</itunes:owner>
+     * 					<channel>
+     * 				</rss>
+     * @param 	string|null		$category
+     * 				Category of the podcast.
+     * 				It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<itunes:category>CATEGORY</itunes:category>
+     * 					<channel>
+     * 				</rss>
+     * 				To not display this tag, set null (default value)
+     * @param 	string|null		$subtitle
+     * 				General subtitle of the podcast.
+     * 				It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<itunes:subtitle>THE SUBTITLE</itunes:subtitle>
+     * 					<channel>
+     * 				</rss>
+     * 				To not display this tag, set null (default value)
+     * @param 	string|null		$language
+     * 				Language of the podcast.
+     * 				It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<language>LA LANGUE</language>
+     * 					<channel>
+     * 				</rss>
+     * 				To not display this tag, set null (default value)
+     * @param 	string|null		$email
+     * 				Email address of the podcast owner.
+     *              It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<itunes:owner>
+     * 							<itunes:email>EMAIL</itunes:email>
+     * 						</itunes:owner>
+     * 					<channel>
+     * 				</rss>
+     * 				To not display this tag, set null (default value)
+     * @param	string|null		$copyright
+     * 				Copyright of the podcast.
+     * 				It's used for this XML tags :
+     * 				<rss>
+     * 					<channel>
+     * 						<copyright>COPYRIGHT</copyright>
+     * 					<channel>
+     * 				</rss>
+     * 				To not display this tag, set null (default value)
+     * @param 	array 	$medias
+     * 				Medias list of the podcast.
+     * 				null to add the media afterwards
+     * @param 	boolean	$injectionMode
+     * 				if true, the following elements will be transmitted to all media so that they take the same
+     *              values ​​as the podcast(only works if the element is null in the media):
+     * 					- the subtitle
+     * 					- Link to the website
+     * 					- the description
+     * 					- the author
+     * 					- theimage
+     */
+	public function __construct($title, $description, $link, $image, $author, $category=null, $subtitle=null, $language=null, $email=null, $copyright=null, $medias=null, $injectionMode=true)
 
 ### 2. the constructor of object `Media`.
 
-Here is the translate documentation of constructor :
+Here the phpdoc of constructor :
 
 	/**
-	 * Create a media
-	 *
-	 * @param	string	$titre
-	 * 				Title of media.
-	 * 				He's placed in tag XML :
-	 * 				<item>
-	 * 					<title>TITLE</title>
-	 * 				</item>
-	 * @param	DateTime	$pubDate
-	 * 				Publication date of media.
-	 * 				He's placed in tag XML :
-	 * 				<item>
-	 * 					<pubDate>DATE</pubDate>
-	 * 				</item>
-	 * @param	string	$url
-	 * 				URL of media
-	 * 				He's placed in tag XML :
-	 * 				<item>
-	 * 					<enclosure url="URL" />
-	 * 				</item>
-	 * @param	string	$type
-	 * 				Type of media (exemple : audio/mpeg)
-	 * 				He's placed in tag XML :
-	 * 				<item>
-	 * 					<enclosure type="TYPE" />
-	 * 				</item>
-	 * @param	string	$guid
-	 * 				GUID of media.
-	 * 				Attention, the GUID must be unique across the Internet
-	 * 				He's placed in tag XML :
-	 * 				<item>
-	 * 					<guid>GUID</guid>
-	 * 				</item>
-	 * @param	string	$duree
-	 * 				Duration of media, in format : HH:MM:SS, H:MM:SS, MM:SS ou M:SS
-	 * 				He's placed in tag XML :
-	 * 				<item>
-	 * 					<itunes:duration>DURATION</itunes:duration>
-	 * 				</item>
-	 * @param	string|null		$descripton
-	 * 				Description of media.
-	 * 				He's placed in tags XML :
-	 * 				<item>
-	 * 					<description>DESCRIPTION</description>
-	 * 					<itunes:summary>DESCRIPTION</itunes:summary>
-	 * 				</item>
-	 * 				If it is null and the podcast is modeInjection to true, the description will be 
-	 *				the same as that of the podcast
-	 * @param	string|null		$sousTitre
-	 * 				Subtitle of media
-	 * 				He's placed in tag XML :
-	 * 				<item>
-	 * 					<itunes:subtitle>SUBTITLE</itunes:subtitle>
-	 * 				</item>
-	 * 				If it is null and the podcast is modeInjection to true, the description will be 
-	 *				the same as that of the podcast
-	 * @param	string|null		$lien
-	 * 				URL to the website of media.
-	 * 				He's placed in tag XML :
-	 * 				<item>
-	 * 					<link>URL</link>
-	 * 				</item>
-	 * 				If it is null and the podcast is modeInjection to true, the description will be 
-	 *				the same as that of the podcast
-	 * @param	string|null		$auteur
-	 * 				Author of media.
-	 * 				He's placed in tag XML :
-	 * 				<item>
-	 * 					<author>AUTHOR</author>
-	 * 					<itunes:author>AUTHOR</itunes:author>
-	 * 				</item>
-	 * 				If it is null and the podcast is modeInjection to true, the description will be 
-	 *				the same as that of the podcast
-	 * @param	string|null		$image
-	 * 				URL to the image of media.
-	 * 				He's placed in tag and atribute XML :
-	 * 				<item>
-	 * 					<itunes:image href="URL" />
-	 * 				</item>
-	 * 				If it is null and the podcast is modeInjection to true, the description will be 
-	 *				the same as that of the podcast
-	 */
-	public function __construct($titre, $pubDate, $url, $type, $guid, $duree, $descripton=null, $sousTitre=null, $lien=null, $auteur=null, $image=null)
+   	 * Media creation
+   	 *
+   	 * @param	string	$title
+   	 * 				Title of the media.
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<title>THE TITLE</title>
+   	 * 				</item>
+   	 * @param	\DateTime	$pubDate
+   	 * 				Publication date of the media.
+     *              It's used for this XML tags :
+     *              <item>
+     *           		<pubDate>PUBLICATION DATE</pubDate>
+     *              </item>
+   	 * @param	string	$url
+   	 * 				URL of the media
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<enclosure url="URL" />
+   	 * 				</item>
+   	 * @param	string	$type
+   	 * 				Type of the media (audio/mpeg other)
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<enclosure type="TYPE" />
+   	 * 				</item>
+   	 * @param	string	$guid
+   	 * 				GUID of the media.
+   	 *              Warning, the GUID must be unique on all the internet (use the url is good way).
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<guid>GUID</guid>
+   	 * 				</item>
+   	 * @param	string	$duration
+   	 * 				Media Duration in this formats Only : HH:MM:SS, H:MM:SS, MM:SS or M:SS
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<itunes:duration>DURATION</itunes:duration>
+   	 * 				</item>
+   	 * @param	string|null		$descripton
+   	 * 				Description of the media.
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<description>THE DESCRIPTION</description>
+   	 * 					<itunes:summary>THE DESCRIPTION</itunes:summary>
+   	 * 				</item>
+   	 * 				if it's null and the podcast is in injectionMod (on true), the description will be the same as
+     *              that of the podcast
+   	 * @param	string|null		$subtitle
+   	 * 				Subtitle of the media.
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<itunes:subtitle>THE SUBTITLE</itunes:subtitle>
+   	 * 				</item>
+   	 * 				if it's null and the podcast is in injectionMod (on true), the subtitle will be the same as
+     *              that of the podcast
+   	 * @param	string|null		$link
+   	 * 				Link to the media website.
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<link>LINK</link>
+   	 * 				</item>
+   	 * 				if it's null and the podcast is in injectionMod (on true), the link will be the same as
+     *              that of the podcast
+   	 * @param	string|null		$author
+   	 * 				Author of the media.
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<author>AUTHOR</author>
+   	 * 					<itunes:author>AUTHOR</itunes:author>
+   	 * 				</item>
+   	 * 				if it's null and the podcast is in injectionMod (on true), the author will be the same as
+     *              that of the podcast
+   	 * @param	string|null		$image
+   	 * 				URL of the image representing the media.
+   	 * 				It's used for this XML tags :
+   	 * 				<item>
+   	 * 					<itunes:image href="IMAGE" />
+   	 * 				</item>
+   	 * 				if it's null and the podcast is in injectionMod (on true), the image url will be the same as
+     *              that of the podcast
+   	 */
+   	public function __construct($title, $pubDate, $url, $type, $guid, $duration, $descripton=null, $subtitle=null, $link=null, $author=null, $image=null)
 
 ### 3. The injection mode
 

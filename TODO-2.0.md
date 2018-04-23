@@ -1,6 +1,6 @@
-## Etape avant la version v2.0
+## Step before version v2.0
 
-- Internationaliser :
-    - Doc par défaut en anglais (tous les fichiers MD)
-- Utiliser une interface pour Media
+- use an interface for Media
 - PHPUnit
+- generate phpdoc
+- add toxml method in podcast (call totext)

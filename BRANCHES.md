@@ -1,10 +1,10 @@
 ## main
-Cette branche est la branche de développement.  
-Ne jamais travailler sur cette branhe mais y fusionner les branches des nouvelle version.
-Ne jamais installer cette branche via composer : elle est instable. Préférez les versions stables (voir les tags).
+This branch is the branch on which the branches of versions in development are merged once stable.
+Never work on this branch but merging the branches of the new version.
 
 ## 2.0-dev
-Cette branche est la branche de développement de la v2.0
+This branch is the development branch of v2.0
+I will be merged into main when the v2.0 will be stable
 
 ## 1.0
-Cette branche dérive du commit portant le tag v1.0 pour le support à long terme de cette version
+This branch derives from the commit with the v1.0 tag for the long-term support of this release
