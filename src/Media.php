@@ -11,62 +11,62 @@ namespace Cyberomulus\PodcastGenerator;
  */
 
 /**
- * Cette classe représente un médià à injecter dans un Podacst
+ * This class represents a medià to inject in a Podacst
  *
  * @author cyberomulus - Brack Romain <me@cyberomulus.me>
  */
 class Media
 	{
 	/**
-	 * Titre du media.
-	 * Il se stock dans les balises XML :
+	 * Title of the media.
+     * It's used for this XML tags :
 	 * <item>
-	 * 		<title>LE TITRE</title>
+	 * 		<title>THE TITLE</title>
 	 * </item>
 	 *
 	 * @var string
 	 */
-	private $titre;
+	private $title;
 
 	/**
-	 * Sous titre du media.
-	 * Il se stock dans la balise XML :
+	 * Subtitle of the media.
+	 * It's used for this XML tags :
 	 * <item>
-	 * 		<itunes:subtitle>LE SOUS TITRE</itunes:subtitle>
+	 * 		<itunes:subtitle>THE SUBTITLE</itunes:subtitle>
 	 * </item>
 	 *
 	 * @var string|null
 	 */
-	private $sousTitre;
+	private $subtitle;
 
 	/**
-	 * URL vers le site web du media.
-	 * Elle se stock dans les balises XML :
+	 * Link to the media website.
+	 * It's used for this XML tags :
 	 * <item>
-	 * 		<link>URL</link>
+	 * 		<link>LINK</link>
 	 * </item>
 	 *
 	 * @var string
 	 */
-	private $lien;
+	private $link;
 
 	/**
-	 * Date de la publication du media.
-	 * Elle se stock dans la balise XML :
+	 * Publication date of the media.
+	 * It's used for this XML tags :
 	 * <item>
-	 * 		<pubDate>LA DATE</pubDate>
+	 * 		<pubDate>PUBLICATION DATE</pubDate>
 	 * </item>
 	 *
-	 * @var DateTime
+	 * @var \DateTime
 	 */
 	private $pubDate;
 
 	/**
-	 * Description du media.
-	 * Elle se stock dans la balise XML :
+	 * Description OF THE media.
+	 * It's used for this XML tags :
 	 * <item>
-	 * 		<description>LA DESCRIPTION</description>
-	 * 		<itunes:summary>LA DESCRIPTION</itunes:summary>
+	 * 		<description>THE DESCRIPTION</description>
+	 * 		<itunes:summary>THE DESCRIPTION</itunes:summary>
 	 * </item>
 	 *
 	 * @var string
@@ -74,8 +74,8 @@ class Media
 	private $description;
 
 	/**
-	 * URL du media
-	 * Elle se stock dans la balise XML :
+	 * URL of the media
+	 * It's used for this XML tags :
 	 * <item>
 	 * 		<enclosure url="URL" />
 	 * </item>
@@ -85,8 +85,8 @@ class Media
 	private $url;
 
 	/**
-	 * Type du media (audio/mpeg par exemple)
-	 * Elle se stock dans la balise XML :
+	 * Type of media (audio/mpeg or other)
+	 * It's used for this XML tags :
 	 * <item>
 	 * 		<enclosure type="TYPE" />
 	 * </item>
@@ -96,20 +96,20 @@ class Media
 	private $type;
 
 	/**
-	 * Auteur du media.
-	 * Il se stock dans la balise XML :
+	 * Authorr of the media.
+	 * It's used for this XML tags :
 	 * <item>
-	 * 		<author>L'AUTEUR</author>
-	 * 		<itunes:author>L'AUTEUR</itunes:author>
+	 * 		<author>THE AUTOHOR</author>
+	 * 		<itunes:author>THE AUTHOR</itunes:author>
 	 * </item>
 	 *
 	 * @var string
 	 */
-	private $auteur;
+	private $author;
 
 	/**
-	 * GUID du media.
-	 * Il se stock dans la balise XML :
+	 * GUID of the media.
+	 * It's used for this XML tags :
 	 * <item>
 	 * 		<guid>GUID</guid>
 	 * </item>
@@ -119,21 +119,21 @@ class Media
 	private $guid;
 
 	/**
-	 * Durée du média sous forme uniquement : HH:MM:SS, H:MM:SS, MM:SS ou M:SS
-	 * Elle se stock dans la balise XML :
+	 * Media Duration in this formats Only : HH:MM:SS, H:MM:SS, MM:SS or M:SS
+	 * It's used for this XML tags :
 	 * <item>
-	 * 		<itunes:duration>DUREE</itunes:duration>
+	 * 		<itunes:duration>DURATION</itunes:duration>
 	 * </item>
 	 *
 	 * @var string
 	 */
-	private $duree;
+	private $duration;
 
 	/**
-	 * URL vers l'image représentant le media.
-	 * Elle se stock dans les balises et attributs XML :
+	 * URL of the image representing the media.
+	 * It's used for this XML tags :
 	 * <item>
-	 * 		<itunes:image href="URL" />
+	 * 		<itunes:image href="IMAGE" />
 	 * </item>
 	 *
 	 * @var string
@@ -141,106 +141,106 @@ class Media
 	private $image;
 
 	/**
-	 * Création d'un média
+	 * Media creation
 	 *
-	 * @param	string	$titre
-	 * 				Titre du media.
-	 * 				Il se stock dans les balises XML :
+	 * @param	string	$title
+	 * 				Title of the media.
+	 * 				It's used for this XML tags :
 	 * 				<item>
-	 * 					<title>LE TITRE</title>
+	 * 					<title>THE TITLE</title>
 	 * 				</item>
-	 * @param	DateTime	$pubDate
-	 * 				Date de la publication du media.
-	 * 				Elle se stock dans la balise XML :
-	 * 				<item>
-	 * 					<pubDate>LA DATE</pubDate>
-	 * 				</item>
+	 * @param	\DateTime	$pubDate
+	 * 				Publication date of the media.
+     *              It's used for this XML tags :
+     *              <item>
+     *           		<pubDate>PUBLICATION DATE</pubDate>
+     *              </item>
 	 * @param	string	$url
-	 * 				URL du media
-	 * 				Elle se stock dans la balise XML :
+	 * 				URL of the media
+	 * 				It's used for this XML tags :
 	 * 				<item>
 	 * 					<enclosure url="URL" />
 	 * 				</item>
 	 * @param	string	$type
-	 * 				Type du media (audio/mpeg par exemple)
-	 * 				Elle se stock dans la balise XML :
+	 * 				Type of the media (audio/mpeg other)
+	 * 				It's used for this XML tags :
 	 * 				<item>
 	 * 					<enclosure type="TYPE" />
 	 * 				</item>
 	 * @param	string	$guid
-	 * 				GUID du media.
-	 * 				Attention, le GUID doit être unique sur tout l'internet
-	 * 				Il se stock dans la balise XML :
+	 * 				GUID of the media.
+	 *              Warning, the GUID must be unique on all the internet (use the url is good way).
+	 * 				It's used for this XML tags :
 	 * 				<item>
 	 * 					<guid>GUID</guid>
 	 * 				</item>
-	 * @param	string	$duree
-	 * 				Durée du média sous forme uniquement : HH:MM:SS, H:MM:SS, MM:SS ou M:SS
-	 * 				Elle se stock dans la balise XML :
+	 * @param	string	$duration
+	 * 				Media Duration in this formats Only : HH:MM:SS, H:MM:SS, MM:SS or M:SS
+	 * 				It's used for this XML tags :
 	 * 				<item>
-	 * 					<itunes:duration>DUREE</itunes:duration>
+	 * 					<itunes:duration>DURATION</itunes:duration>
 	 * 				</item>
 	 * @param	string|null		$descripton
-	 * 				Description du media.
-	 * 				Elle se stock dans la balise XML :
+	 * 				Description of the media.
+	 * 				It's used for this XML tags :
 	 * 				<item>
-	 * 					<description>LA DESCRIPTION</description>
-	 * 					<itunes:summary>LA DESCRIPTION</itunes:summary>
+	 * 					<description>THE DESCRIPTION</description>
+	 * 					<itunes:summary>THE DESCRIPTION</itunes:summary>
 	 * 				</item>
-	 * 				Si elle est null et que le podcast est en modeInjection à true, la description sera la même
-	 * 				que celle du podcast
-	 * @param	string|null		$sousTitre
-	 * 				Sous titre du media.
-	 * 				Il se stock dans la balise XML :
+	 * 				if it's null and the podcast is in injectionMod (on true), the description will be the same as
+     *              that of the podcast
+	 * @param	string|null		$subtitle
+	 * 				Subtitle of the media.
+	 * 				It's used for this XML tags :
 	 * 				<item>
-	 * 					<itunes:subtitle>LE SOUS TITRE</itunes:subtitle>
+	 * 					<itunes:subtitle>THE SUBTITLE</itunes:subtitle>
 	 * 				</item>
-	 * 				Si il est null et que le podcast est en modeInjection à true, le sous titre sera le même
-	 * 				que celui du podcast
-	 * @param	string|null		$lien
-	 * 				URL vers le site web du media.
-	 * 				Elle se stock dans les balises XML :
+	 * 				if it's null and the podcast is in injectionMod (on true), the subtitle will be the same as
+     *              that of the podcast
+	 * @param	string|null		$link
+	 * 				Link to the media website.
+	 * 				It's used for this XML tags :
 	 * 				<item>
-	 * 					<link>URL</link>
+	 * 					<link>LINK</link>
 	 * 				</item>
-	 * 				Si elle est null et que le podcast est en modeInjection à true, l'url sera la même
-	 * 				que celle du podcast
-	 * @param	string|null		$auteur
-	 * 				Auteur du media.
-	 * 				Il se stock dans la balise XML :
+	 * 				if it's null and the podcast is in injectionMod (on true), the link will be the same as
+     *              that of the podcast
+	 * @param	string|null		$author
+	 * 				Author of the media.
+	 * 				It's used for this XML tags :
 	 * 				<item>
-	 * 					<author>L'AUTEUR</author>
-	 * 					<itunes:author>L'AUTEUR</itunes:author>
+	 * 					<author>AUTHOR</author>
+	 * 					<itunes:author>AUTHOR</itunes:author>
 	 * 				</item>
-	 * 				Si il est null et que le podcast est en modeInjection à true, l'auteur sera le même
-	 * 				que celui du podcast
+	 * 				if it's null and the podcast is in injectionMod (on true), the author will be the same as
+     *              that of the podcast
 	 * @param	string|null		$image
-	 * 				URL vers l'image représentant le media.
-	 * 				Elle se stock dans les balises et attributs XML :
+	 * 				URL of the image representing the media.
+	 * 				It's used for this XML tags :
 	 * 				<item>
-	 * 					<itunes:image href="URL" />
+	 * 					<itunes:image href="IMAGE" />
 	 * 				</item>
-	 * 				Si elle est null et que le podcast est en modeInjection à true, l'url sera la même
-	 * 				que celle du podcast
+	 * 				if it's null and the podcast is in injectionMod (on true), the image url will be the same as
+     *              that of the podcast
 	 */
-	public function __construct($titre, $pubDate, $url, $type, $guid, $duree, $descripton=null, $sousTitre=null, $lien=null, $auteur=null, $image=null)
+	public function __construct($title, $pubDate, $url, $type, $guid, $duration, $descripton=null, $subtitle=null, $link=null, $author=null, $image=null)
 		{
-		$this->titre = $titre;
+		$this->title = $title;
 		$this->pubDate = $pubDate;
 		$this->url = $url;
 		$this->type = $type;
 		$this->guid = $guid;
-		$this->duree = $duree;
+		$this->duration = $duration;
 		$this->description = $descripton;
-		$this->sousTitre = $sousTitre;
-		$this->lien = $lien;
-		$this->auteur = $auteur;
+		$this->subtitle = $subtitle;
+		$this->link = $link;
+		$this->author = $author;
 		$this->image = $image;
 		}
 
 	/**
-	 * @return	DateTime
-	 * 				La date de publication du media
+	 * @return	\DateTime
+	 * 				the publication date of du media
 	 */
 	public function getPubDate()
 		{
@@ -248,104 +248,112 @@ class Media
 		}
 		
 	/**
-	 * Cette méthode est appelée par la classe Podcast si elle est définie en mode injection
+	 * This method is called by the Podcast class if it is set to injection mode (on true)
 	 *
-	 * @param	string|null		$sousTitre
-	 * 				Le sous titre du podacst
-	 * @param	string|null		$lien
-	 * 				L'adresse du site du podcast
-	 * @param	string|null		$description
-	 * 				Description du podcast
-	 * @param	string|null		$auteur
-	 * 				Auteur du Podcast
-	 * @param	string|null		$image
-	 * 				URl de l'image du Podcast
+	 * @param	string|null		$subtitle
+     * 				Subtitle of the media.
+     * 				It's used for this XML tags :
+     * 				<item>
+     * 					<itunes:subtitle>THE SUBTITLE</itunes:subtitle>
+     * 				</item>
+     * @param	string|null		$link
+     * 				Link to the media website.
+     * 				It's used for this XML tags :
+     * 				<item>
+     * 					<link>LINK</link>
+     * 				</item>
+	 * @param	string|null		$descripton
+     * 				Description of the media.
+     * 				It's used for this XML tags :
+     * 				<item>
+     * 					<description>THE DESCRIPTION</description>
+     * 					<itunes:summary>THE DESCRIPTION</itunes:summary>
+     * 				</item>
+	 * @param	string|null		$author
+     * 				Author of the media.
+     * 				It's used for this XML tags :
+     * 				<item>
+     * 					<author>AUTHOR</author>
+     * 					<itunes:author>AUTHOR</itunes:author>
+     * 				</item>
+     * @param	string|null		$image
+     * 				URL of the image representing the media.
+     * 				It's used for this XML tags :
+     * 				<item>
+     * 					<itunes:image href="IMAGE" />
+     * 				</item>
 	 */
-	public function injecter($sousTitre, $lien, $description, $auteur, $image)
+	public function inject($subtitle, $link, $description, $author, $image)
 		{
-		if ($this->sousTitre == null)
-			$this->sousTitre = $sousTitre;
+		if ($this->subtitle == null)
+			$this->subtitle = $subtitle;
 
-		if ($this->lien == null)
-			$this->lien = $lien;
+		if ($this->link == null)
+			$this->link = $link;
 
 		if ($this->description == null)
 			$this->description = $description;
 
-		if ($this->auteur == null)
-			$this->auteur = $auteur;
+		if ($this->author == null)
+			$this->author = $author;
 
 		if ($this->image == null)
 			$this->image = $image;
 		}
 
 	/**
-	 * Ajoute le media dans le document Dom en paramètre
+	 * Adds the media in the Dom document as a parameter
 	 *
-	 * @param	DOMDocument		$dom
-	 * 				Document dom dans lequel il faut ajouter le media
+	 * @param	\DOMDocument		$dom
+	 * 				Dom document in which the media will be added
 	 */
 	public function addToDom($dom)
 		{
-		// recuperation de <channel>
 		$channels = $dom->getElementsByTagName("channel");
 		$channel = $channels->item(0);
 
-		// creation de <item>
 		$item = $dom->createElement("item");
 		$channel->appendChild($item);
 
-		// creation de <title>
-		$titre = $dom->createElement("title", $this->titre);//$dom->createElement("title", $this->titre);
-		$item->appendChild($titre);
+		$title = $dom->createElement("title", $this->title);
+		$item->appendChild($title);
 
-		// creation de <itunes:subtitle>
-		if ($this->sousTitre != null)
+		if ($this->subtitle != null)
 			{
-			$itune_sousTitre = $dom->createElement("itunes:subtitle", $this->sousTitre);
-			$item->appendChild($itune_sousTitre);
+			$itune_subtitle = $dom->createElement("itunes:subtitle", $this->subtitle);
+			$item->appendChild($itune_subtitle);
 			}
 
-		// creation de <description>
 		$description = $dom->createElement("description");
 		$description->appendChild($dom->createCDATASection($this->description));
 		$item->appendChild($description);
 
-		// creation de <itunes:summary>
 		$itune_summary = $dom->createElement("itunes:summary", $this->description);
 		$item->appendChild($itune_summary);
 
-		// creation de <link>
-		$lien = $dom->createElement("link", $this->lien);
-		$item->appendChild($lien);
+		$link = $dom->createElement("link", $this->link);
+		$item->appendChild($link);
 
-		// creation de <pubDate>
 		$pubDate = $dom->createElement("pubDate", $this->pubDate->format(DATE_RFC2822));
 		$item->appendChild($pubDate);
 
-		// creation de <enclosure>
 		$enclosure = $dom->createElement("enclosure");
 		$enclosure->setAttribute("url", $this->url);
 		$enclosure->setAttribute("type", $this->type);
 		$item->appendChild($enclosure);
 
-		// creation de <author>
-		$auteur = $dom->createElement("author", $this->auteur);
-		$item->appendChild($auteur);
+		$author = $dom->createElement("author", $this->author);
+		$item->appendChild($author);
 
-		// creation de <itunes:author>
-		$itune_auteur = $dom->createElement("itunes:author", $this->auteur);
-		$item->appendChild($itune_auteur);
+		$itune_author = $dom->createElement("itunes:author", $this->author);
+		$item->appendChild($itune_author);
 
-		// creation de <itunes:duration>
-		$itune_duree = $dom->createElement("itunes:duration", $this->duree);
-		$item->appendChild($itune_duree);
+		$itune_duration = $dom->createElement("itunes:duration", $this->duration);
+		$item->appendChild($itune_duration);
 
-		// creation de <guid>
 		$guid = $dom->createElement("guid", $this->guid);
 		$item->appendChild($guid);
 
-		// creation de <itunes:image>
 		$itune_image = $dom->createElement("itunes:image");
 		$itune_image->setAttribute("href", $this->image);
 		$item->appendChild($itune_image);
