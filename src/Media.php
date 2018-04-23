@@ -301,6 +301,17 @@ class Media
 			$this->image = $image;
 		}
 
+    /**
+     * @deprecated  2.0
+     *                  Deprecated since 2.0, see UPGRADE-2.0 for information
+     *                  It will be removed at version 3.0
+     * @see         Media::inject()
+     */
+    public function injecter($subtitle, $link, $description, $author, $image)
+        {
+        $this->inject($subtitle, $link, $description, $author, $image);
+        }
+
 	/**
 	 * Adds the media in the Dom document as a parameter
 	 *
