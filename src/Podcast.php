@@ -347,15 +347,26 @@ class Podcast
 		}
 	
 	/**
-	 * Returns the generated podcast in XML format
+	 * Same as toXML()
 	 * 
 	 * @return	string
 	 * 				The generated podcast in XML format
 	 */
 	public function toString()
 		{		
-		return $this->generate()->saveXML();
+		return $this->toXML();
 		}
+
+    /**
+     * Returns the generated podcast in XML format
+     *
+     * @return	string
+     * 				The generated podcast in XML format
+     */
+    public function toXML()
+        {
+        return $this->generate()->saveXML();
+        }
 	
 	/**
 	 * Returns the generated podcast as a DOM document

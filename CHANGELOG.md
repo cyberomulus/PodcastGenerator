@@ -2,6 +2,7 @@
 
 ## v2.0 (2018-xx-xx)
 
+- Add toXML() method in Podcast
 - Internationalization:
     - md files in english
     - Javadoc in english

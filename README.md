@@ -324,7 +324,9 @@ These values will be inherited from the podcast where these two conditions are r
 	
 	// to display the XML document
 	header ("Content-Type:text/xml");
-	echo $podcast->toString();
+	echo $podcast->toXML();
+	// same as :
+	// echo $podcast->toString();
 	
 	// but it is possible to recover the DOM document for editing
 	$dom = $podcast->toDom();

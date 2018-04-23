@@ -3,4 +3,3 @@
 - use an interface for Media
 - PHPUnit
 - generate phpdoc
-- add toxml method in podcast (call totext)
