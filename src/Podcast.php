@@ -11,55 +11,55 @@ namespace Cyberomulus\PodcastGenerator;
  */
 
 /**
- * Cette classe représente un podcast
+ * This class represents a podcast
  * 
  * @author cyberomulus - Brack Romain <me@cyberomulus.me>
  */
 class Podcast
 	{
 	/**
-	 * Définit si il faut injecter des infos aux média
+	 * Defines whether information will be injected into the media
 	 * 
 	 * @var boolean
 	 */
-	private $modeInjection;
+	private $injectionMode;
 	
 	/**
-	 * Titre général du podcast.
-	 * Il se stock dans les balises XML :
+	 * General title of podcast.
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
-	 * 			<title>LE TITRE</title>
+	 * 			<title>THE TITLE</title>
 	 * 			<image>
-	 * 				<title>LE TITRE</title>
+	 * 				<title>THE TITLE</title>
 	 * 			</image>
 	 * 		<channel>
 	 * </rss>
 	 * 
 	 * @var string
 	 */
-	private $titre;
+	private $titLe;
 	
 	/**
-	 * Sous titre général du podcast.
-	 * Il se stock dans la balise XML :
+	 * General subtitle of the podcast.
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
-	 * 			<itunes:subtitle>LE SOUS TITRE</itunes:subtitle>
+	 * 			<itunes:subtitle>THE SUBTITLE</itunes:subtitle>
 	 * 		<channel>
 	 * </rss>
 	 *
 	 * @var string|null
 	 */
-	private $sousTitre;
+	private $subtitle;
 	
 	/**
-	 * Description du podcast.
-	 * Elle se stock dans les balises XML :
+	 * Description of the podcast.
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
-	 * 			<description>LA DESCRIPTION</description>
-	 * 			<itunes:summary>LA DESCRIPTION</itunes:summary>
+	 * 			<description>THE DESCRIPTION</description>
+	 * 			<itunes:summary>THE DESCRIPTION</itunes:summary>
 	 * 		<channel>
 	 * </rss>
 	 * 
@@ -68,30 +68,30 @@ class Podcast
 	private $description;
 	
 	/**
-	 * URL vers le site web du podcast.
-	 * Elle se stock dans les balises XML :
+	 * Link to the PODCAST website
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
-	 * 			<link>URL</link>
+	 * 			<link>LINK</link>
 	 * 			<image>
-	 * 				<link>URL</link>
+	 * 				<link>LINK</link>
 	 * 			</image>
 	 * 		<channel>
 	 * </rss>
 	 *
 	 * @var string
 	 */
-	private $lien;
+	private $link;
 	
 	/**
-	 * URL vers l'image représentant le podcast.
-	 * Elle se stock dans les balises et attributs XML :
+	 * URL of the image representing the podcast.
+     * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
 	 * 			<image>
-	 * 				<url>URL</url>
+	 * 				<url>IMAGE</url>
 	 * 			</image>
-	 * 			<itunes:image href="URL" />
+	 * 			<itunes:image href="IMAGE" />
 	 * 		<channel>
 	 * </rss>
 	 * 
@@ -100,64 +100,64 @@ class Podcast
 	private $image;
 	
 	/**
-	 * Auteur du podcast.
-	 * Il se stock dans la balise XML :
+	 * Author of the podcast.
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
-	 * 			<itunes:author>L'AUTEUR</itunes:author>
+	 * 			<itunes:author>AUTHOR</itunes:author>
 	 * 			<itunes:owner>
-	 * 				<itunes:name>L'AUTEUR</itunes:name>
+	 * 				<itunes:name>AUTHOR</itunes:name>
 	 * 			</itunes:owner>
 	 * 		<channel>
 	 * </rss>
 	 *
 	 * @var string
 	 */
-	private $auteur;
+	private $author;
 	
 	/**
-	 * Catégorie du podcast.
-	 * Il se stock dans la balise XML :
+	 * Category of the podcast.
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
-	 * 			<itunes:category>LA CATEGORIE</itunes:category>
+	 * 			<itunes:category>CATEGORY</itunes:category>
 	 * 		<channel>
 	 * </rss>
 	 *
 	 * @var string|null
 	 */
-	private $categorie;
+	private $category;
 	
 	/**
-	 * Langue du podcast.
-	 * Elle se stock dans la balise XML :
+	 * Language of the podcast.
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
-	 * 			<language>LA LANGUE</language>
+	 * 			<language>LANGUAGE</language>
 	 * 		<channel>
 	 * </rss>
 	 *
 	 * @var string|null
 	 */
-	private $langue;
+	private $language;
 	
 	/**
-	 * Date de la dernière publication du podcast.
-	 * Elle est définie juste avant la génération en parcourant la liste d'item.
-	 * Elle se stock dans la balise XML :
+	 * Date of the last podcast publication.
+	 * It is defined by the last media on the list.
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
-	 * 			<pubDate>LA DATE</pubDate>
+	 * 			<pubDate>PUBLICATION DATE</pubDate>
 	 * 		<channel>
 	 * </rss>
 	 *
-	 * @var DateTime
+	 * @var \DateTime
 	 */
 	private $pubDate;
 	
 	/**
-	 * Adresse email du propriétaire du podcast.
-	 * Elle se stock dans la balise XML :
+	 * Email address of the podcast owner.
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
 	 * 			<itunes:owner>
@@ -171,11 +171,11 @@ class Podcast
 	private $email;
 	
 	/**
-	 * Copyright du podcast.
-	 * Elle se stock dans la balise XML :
+	 * Copyright of podcast.
+	 * It's used for this XML tags :
 	 * <rss>
 	 * 		<channel>
-	 * 			<copyright>LA COPYRIGHT</copyright>
+	 * 			<copyright>COPYRIGHT</copyright>
 	 * 		<channel>
 	 * </rss>
 	 *
@@ -184,98 +184,98 @@ class Podcast
 	private $copyright;
 	
 	/**
-	 * Liste des medias du podcast 
+	 * Medias list of the podcast
 	 * 
 	 * @var array
 	 */
 	private $medias;
 	
 	/**
-	 * Création d'un podcast.
+	 * Podcast creation.
 	 * 
-	 * @param	string	$titre
-	 * 				Titre général du podcast.
-	 * 				Il se stock dans les balises XML :
+	 * @param	string	$title
+	 * 				General title of the podcast.
+	 * 				It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
-	 * 						<title>LE TITRE</title>
+	 * 						<title>THE TITLE</title>
 	 * 						<image>
-	 * 							<title>LE TITRE</title>
+	 * 							<title>THE TITLE</title>
 	 * 						</image>
 	 * 					<channel>
 	 * 				</rss>
 	 * @param	string	$description
-	 * 				Description du podcast.
-	 * 				Elle se stock dans les balises XML :
+	 * 				Description of the podcast.
+	 * 				It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
-	 * 						<description>LA DESCRIPTION</description>
-	 * 						<itunes:summary>LA DESCRIPTION</itunes:summary>
+	 * 						<description>THE DESCRIPTION</description>
+	 * 						<itunes:summary>THE DESCRIPTION</itunes:summary>
 	 * 					<channel>
 	 * 				</rss>
-	 * @param	string	$lien
-	 * 				URL vers le site web du podcast.
-	 * 				Elle se stock dans les balises XML :
+	 * @param	string	$link
+	 * 				Link to the PODCAST website
+     *              It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
-	 * 						<link>URL</link>
+	 * 						<link>LINK</link>
 	 * 						<image>
-	 * 							<link>URL</link>
+	 * 							<link>LINK</link>
 	 * 						</image>
 	 * 					<channel>
 	 * 				</rss>
 	 * @param	string	$image
-	 * 				URL vers l'image représentant le podcast.
-	 * 				Elle se stock dans les balises et attributs XML :
+	 * 				URL of the image representing the podcast.
+     *              It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
 	 * 						<image>
-	 * 							<url>URL</url>
+	 * 							<url>IMAGE</url>
 	 * 						</image>
-	 * 						<itunes:image href="URL" />
+	 * 						<itunes:image href="IMAGE" />
 	 * 					<channel>
 	 * 				</rss>
-	 * @param	string	$auteur
-	 * 				Auteur du podcast.
-	 * 				Il se stock dans la balise XML :
+	 * @param	string	$author
+	 * 				Author of the podcast.
+	 * 				It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
-	 * 						<itunes:author>L'AUTEUR</itunes:author>
+	 * 						<itunes:author>AUTHOR</itunes:author>
 	 * 						<itunes:owner>
-	 * 							<itunes:name>L'AUTEUR</itunes:name>
+	 * 							<itunes:name>AUTHOR</itunes:name>
 	 * 						</itunes:owner>
 	 * 					<channel>
 	 * 				</rss>
-	 * @param 	string|null		$categorie
-	 * 				Catégorie du podcast.
-	 * 				Il se stock dans la balise XML :
+	 * @param 	string|null		$category
+	 * 				Category of the podcast.
+	 * 				It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
-	 * 						<itunes:category>LA CATEGORIE</itunes:category>
+	 * 						<itunes:category>CATEGORY</itunes:category>
 	 * 					<channel>
 	 * 				</rss>
-	 * 				Pour ne pas afficher cette balise, mettre null (valeur par défaut)
-	 * @param 	string|null		$sousTitre
-	 * 				Sous titre général du podcast.
-	 * 				Il se stock dans la balise XML :
+	 * 				To not display this tag, set null (default value)
+	 * @param 	string|null		$subtitle
+	 * 				General subtitle of the podcast.
+	 * 				It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
-	 * 						<itunes:subtitle>LE SOUS TITRE</itunes:subtitle>
+	 * 						<itunes:subtitle>THE SUBTITLE</itunes:subtitle>
 	 * 					<channel>
 	 * 				</rss>
-	 * 				Pour ne pas afficher cette balise, mettre null  (valeur par défaut)
-	 * @param 	string|null		$langue
-	 * 				Langue du podcast.
-	 * 				Elle se stock dans la balise XML :
+	 * 				To not display this tag, set null (default value)
+	 * @param 	string|null		$language
+	 * 				Language of the podcast.
+	 * 				It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
 	 * 						<language>LA LANGUE</language>
 	 * 					<channel>
 	 * 				</rss>
-	 * 				Pour ne pas afficher cette balise, mettre null  (valeur par défaut)
+	 * 				To not display this tag, set null (default value)
 	 * @param 	string|null		$email
-	 * 				Adresse email du propriétaire du podcast.
-	 * 				Elle se stock dans la balise XML :
+	 * 				Email address of the podcast owner.
+     *              It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
 	 * 						<itunes:owner>
@@ -283,39 +283,39 @@ class Podcast
 	 * 						</itunes:owner>
 	 * 					<channel>
 	 * 				</rss>
-	 * 				Pour ne pas afficher cette balise, mettre null  (valeur par défaut)
+	 * 				To not display this tag, set null (default value)
 	 * @param	string|null		$copyright
-	 * 				Copyright du podcast.
-	 * 				Elle se stock dans la balise XML :
+	 * 				Copyright of the podcast.
+	 * 				It's used for this XML tags :
 	 * 				<rss>
 	 * 					<channel>
-	 * 						<copyright>LA COPYRIGHT</copyright>
+	 * 						<copyright>COPYRIGHT</copyright>
 	 * 					<channel>
 	 * 				</rss>
-	 * 				Pour ne pas afficher cette balise, mettre null  (valeur par défaut)
+	 * 				To not display this tag, set null (default value)
 	 * @param 	array 	$medias
-	 * 				Liste des medias du podcast.
-	 * 				Mettre null pour ajouter les médias par la suite
-	 * @param 	boolean	$modeInjection
-	 * 				Si true, les éléments suivant seront transmis à tous les médias afin qu'il prennent les 
-	 * 				même valeurs que le podcast (ne fait effet que si l'élément est null dans le media:
-	 * 					- le sous titre
-	 * 					- URL vers le site web
-	 * 					- la description
-	 * 					- l'auteur
-	 * 					- l'image
+	 * 				Medias list of the podcast.
+	 * 				null to add the media afterwards
+	 * @param 	boolean	$injectionMode
+	 * 				if true, the following elements will be transmitted to all media so that they take the same
+     *              values ​​as the podcast(only works if the element is null in the media):
+	 * 					- the subtitle
+	 * 					- Link to the website
+	 * 					- the description
+	 * 					- the author
+	 * 					- theimage
 	 */
-	public function __construct($titre, $description, $lien, $image, $auteur, $categorie=null, $sousTitre=null, $langue=null, $email=null, $copyright=null, $medias=null, $modeInjection=true)
+	public function __construct($title, $description, $link, $image, $author, $category=null, $subtitle=null, $language=null, $email=null, $copyright=null, $medias=null, $injectionMode=true)
 		{
-		$this->modeInjection = $modeInjection;
-		$this->titre = $titre;
+		$this->injectionMode = $injectionMode;
+		$this->titLe = $title;
 		$this->description = $description;
-		$this->lien = $lien;
+		$this->link = $link;
 		$this->image = $image;
-		$this->auteur = $auteur;
-		$this->categorie = $categorie;
-		$this->sousTitre = $sousTitre;
-		$this->langue = $langue;
+		$this->author = $author;
+		$this->category = $category;
+		$this->subtitle = $subtitle;
+		$this->language = $language;
 		$this->email = $email;
 		$this->copyright = $copyright;
 		
@@ -326,10 +326,10 @@ class Podcast
 		}
 	
 	/**
-	 * Ajoute un ou plusieurs Media au podcast
+	 * Add one or more media to the podcast
 	 * 
 	 * @param	Media|Media[]	$media
-	 * 				Medié(s) à ajouter au podcast
+	 * 				Media(s) to add to the podcast
 	 */
 	public function addMedia($media)
 		{
@@ -347,90 +347,90 @@ class Podcast
 		}
 	
 	/**
-	 * Retourne le podcast généré sous forme de chaines de caractère
+	 * Same as toXML()
 	 * 
 	 * @return	string
-	 * 				Le podcast généré
+	 * 				The generated podcast in XML format
 	 */
 	public function toString()
 		{		
-		return $this->genere()->saveXML();
+		return $this->toXML();
 		}
+
+    /**
+     * Returns the generated podcast in XML format
+     *
+     * @return	string
+     * 				The generated podcast in XML format
+     */
+    public function toXML()
+        {
+        return $this->generate()->saveXML();
+        }
 	
 	/**
-	 * Retourne le podcast généré sous forme de document DOM
+	 * Returns the generated podcast as a DOM document
 	 * 
-	 * @return	DOMDocument
+	 * @return	\DOMDocument
+     *              The generated podcast in DOM document
 	 */
 	public function toDom()
 		{
-		return $this->genere();
+		return $this->generate();
 		}
 	
 	/**
-	 * Génère le document DOM
+	 * Generate the DOM document
 	 * 
-	 * @return DOMDocument
+	 * @return \DOMDocument
 	 */
-	private function genere()
+	private function generate()
 		{
-		// creation du dom
 		$dom = new \DOMDocument("1.0", "utf-8");
 
-		// creation de <rss>
 		$rss = $dom->createElement("rss");
 		$rss->setAttribute("xmlns:itunes", "http://www.itunes.com/dtds/podcast-1.0.dtd");
 		$rss->setAttribute("version", "2.0");
 		$dom->appendChild($rss);
 		
-		// creation de <channel>
 		$channel = $dom->createElement("channel");
 		$rss->appendChild($channel);
 		
-		// creation de <title>
-		$titre = $dom->createElement("title", $this->titre);
-		$channel->appendChild($titre);
+		$title = $dom->createElement("title", $this->titLe);
+		$channel->appendChild($title);
 		
-		// creation de <itunes:subtitle>
-		if ($this->sousTitre != null)
+		if ($this->subtitle != null)
 			{
-			$itune_sousTitre = $dom->createElement("itunes:subtitle", $this->sousTitre);
-			$channel->appendChild($itune_sousTitre);
+			$itune_subtitle = $dom->createElement("itunes:subtitle", $this->subtitle);
+			$channel->appendChild($itune_subtitle);
 			}
 		
-		// creation de <link>
-		$lien = $dom->createElement("link", $this->lien);
-		$channel->appendChild($lien);
+		$link = $dom->createElement("link", $this->link);
+		$channel->appendChild($link);
 		
-		// creation de <description>
 		$description = $dom->createElement("description");
 		$description->appendChild($dom->createCDATASection($this->description));
 		$channel->appendChild($description);
 		
-		// creation de <itunes:summary>
 		$itune_summary = $dom->createElement("itunes:summary", $this->description);
 		$channel->appendChild($itune_summary);
 		
-		// creation de <image>
 		$image = $dom->createElement("image");
-		$image->appendChild($titre->cloneNode(true));
-		$image->appendChild($lien->cloneNode(true));
+		$image->appendChild($title->cloneNode(true));
+		$image->appendChild($link->cloneNode(true));
 		$channel->appendChild($image);
 		$image_url = $dom->createElement("url", $this->image);
 		$image->appendChild($image_url);
 		
-		// creation de <itunes:image>
 		$itune_image = $dom->createElement("itunes:image");
 		$itune_image->setAttribute("href", $this->image);
 		$channel->appendChild($itune_image);
 		
-		// creation de <itunes:author>
-		$itune_auteur = $dom->createElement("itunes:author", $this->auteur);
-		$channel->appendChild($itune_auteur);
+		$itune_author = $dom->createElement("itunes:author", $this->author);
+		$channel->appendChild($itune_author);
 		
-		// creation de <itunes:owner>
 		$itune_owner = $dom->createElement("itunes:owner");
-		$itune_owner_name = $dom->createElement("itunes:name", $this->auteur);
+		$itune_owner_name = $dom->createElement("itunes:name", $this->author);
 		$itune_owner->appendChild($itune_owner_name);
 		if ($this->email != null)
 			{
@@ -439,44 +439,37 @@ class Podcast
 			}
 		$channel->appendChild($itune_owner);
 		
-		// creation de <itunes:category>
-		if ($this->categorie != null)
+		if ($this->category != null)
 			{
-			$categorie = $dom->createElement("itunes:category", $this->categorie);
-			$channel->appendChild($categorie);
+			$category = $dom->createElement("itunes:category", $this->category);
+			$channel->appendChild($category);
 			}
 		
-		// creation de <language>
-		if ($this->langue != null)
+		if ($this->language != null)
 			{
-			$langue = $dom->createElement("language", $this->langue);
-			$channel->appendChild($langue);
+			$language = $dom->createElement("language", $this->language);
+			$channel->appendChild($language);
 			}
 		
-		// creation de <copyright>
 		if ($this->copyright != null)
 			{
 			$copyright = $dom->createElement("copyright", $this->copyright);
 			$channel->appendChild($copyright);
 			}
 		
-		// creation des <items>
 		foreach ($this->medias as $media)
 			{
-			if ($this->modeInjection == true)
-				$media->injecter($this->sousTitre, $this->lien, $this->description, $this->auteur, $this->image);
+			if ($this->injectionMode == true)
+				$media->inject($this->subtitle, $this->link, $this->description, $this->author, $this->image);
 
-			// ajout du media dans le dom
 			$media->addToDom($dom);
 			
-			// récupère la date la plus récente des media pour <pubDate>
 			if ($this->pubDate == null)
 				$this->pubDate = $media->getPubDate();
 			else if ($this->pubDate < $media->getPubDate())
 				$this->pubDate = $media->getPubDate();
 			}
 		
-		// creation de <pubDate>
 		if ($this->pubDate == null)
 			$this->pubDate = new \DateTime();
 		$pubDate = $dom->createElement("pubDate", $this->pubDate->format(DATE_RFC2822));
