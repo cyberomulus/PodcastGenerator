@@ -24,4 +24,4 @@
 
 ## From the 2.0 tag
 
-The structure of gitflox is used after 2.0
+The structure of gitflow is used after 2.0
