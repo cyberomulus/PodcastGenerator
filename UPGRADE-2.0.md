@@ -8,4 +8,4 @@ All methods are renamed, here is the list of public methods renamed :
 | ------------------------------------------------------------------- | ----------------------------------------------------------------
 | `Media::injecter($sousTitre, $lien, $description, $auteur, $image)` | `Media::inject($subtitle, $link, $description, $author, $image)`
 
-Retro-compatibility is now up to version 3.0
+Old methods will be removed on version 3.0

@@ -11,7 +11,7 @@ Just add the dependencies to your composer.json:
 	
 	{
 		"require": {
-            "cyberomulus/podcast-generator": "2.0"
+            "cyberomulus/podcast-generator": "2.*"
         }
     }
 	
