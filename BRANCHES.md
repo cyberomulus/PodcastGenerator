@@ -1,6 +1,6 @@
 # Git branch strategy
 
-## From strat to version 2
+## From start to version 2
 
 ```
          *  initial comminit
@@ -8,7 +8,6 @@
          *  differents commit for prepare 10
          |
          *  tag 1.0
-
          |         
          * one or more commit for prepare 2.0
          |

@@ -1,6 +1,10 @@
 # Changelog
 
-## v2.0 (2018-xx-xx)
+## v2.0.1 (xxxx-xx-xx)
+
+- Minors corrections in doc
+
+## v2.0 (2018-04-28)
 
 - Add toXML() method in Podcast
 - Internationalization:
